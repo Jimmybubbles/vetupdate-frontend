@@ -1,25 +1,22 @@
-import React from 'react';
-import { BrowserRouter, Route, Navigate, Routes } from 'react-router-dom';
 
-import AuthPage from './pages/Auth';
-
+import { BrowserRouter as  Router, Routes, Route,   } from 'react-router-dom';
 import './App.css';
+import AuthPage from './pages/Auth';
+import EventsPage from './pages/events';
+import BookingsPage from './pages/bookings';
+import Homepage from './pages/home'
 
-const App = () => {
-
-    return(
-      
-      <BrowserRouter>
+function App() {
+  return(
+    <Router>
         <Routes>
-          <Navigate from="/" to="auth" exact />
-          <Route path="/auth" Component={AuthPage} />
-          <Route path="/events" Component={null} />
-          <Route path="/bookings" Component={null} />
-        <h1> it Works! </h1>
+          <Route path="/" element={<Homepage />}/>
+          <Route path="/auth" element={<AuthPage/>}/>
+          <Route path="/events" element={<EventsPage/>}/>
+          <Route path="/bookings" element={<BookingsPage/>}/>
         </Routes>
-      </BrowserRouter>
-    )
+      </Router>
+    );
   }
 
-
-export default App
+  export default App;

@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AuthPage extends Component {
-    render() {
-        return (<h1>The Auth Page</h1>);
-    }
+const BookingsPage = () => {
+    
+    return(
+       
+        <h1>this is the Booking page</h1>
+    ) 
+       
+    
 }
 
-export default AuthPage;
+export default BookingsPage;
