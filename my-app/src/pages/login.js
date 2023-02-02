@@ -5,8 +5,11 @@ import { LOGIN_USER } from '../components/utils/mutations'
 import Auth from '../components/utils/auth'
 
 const Login = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, {error, data}] = useMutation(LOGIN_USER); 
+    const [formState, setFormState] = useState({
+        email: '', 
+        password: '' 
+    });
+    const [login, {error}] = useMutation(LOGIN_USER); 
 
     // update state based on form input changes
     const handleInputChange = (event) => {
@@ -15,7 +18,7 @@ const Login = (props) => {
         setFormState({
             ...formState,
             [name]: value,
-        })
+        });
     };
 
     // submit form
@@ -32,11 +35,7 @@ const Login = (props) => {
             console.error(e)
         }
 
-        // clear form values
-        setFormState({
-            email: '',
-            password: '',
-        });
+
     };
 
 
@@ -48,26 +47,32 @@ const Login = (props) => {
                 <label htmlFor='email'>E-mail</label>
                 
                 <input 
+                placeholder="you email"
+                name="email"
                 type="email"
-                onChange={handleInputChange} 
                 id="email" 
-                value={formState.email}/>
+                onChange={handleInputChange} 
+                />
             
             </div>
 
             <div className='form-control'>
                 <label htmlFor='password'>Password</label>
+                
                 <input 
-                type="password" 
-                onChange={handleInputChange}
-                id="password" 
-                value={formState.password}/>
+                placeholder='******'
+                name="password"
+                type="password"
+                id='pwd'
+                onChange={handleInputChange} 
+                />
             </div>
 
             <div className='form-actions'>
                 
                 <button type="submit">Submit</button>
                 <button type="button">Switch to Signup</button>
+             
             
             </div>
             </form>

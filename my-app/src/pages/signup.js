@@ -68,7 +68,7 @@ const SignupPage = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;'
                   name="password"
                   type="password"
                   value={formState.password}
