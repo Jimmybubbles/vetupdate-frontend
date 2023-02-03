@@ -1,16 +1,14 @@
-const { Schema, model } = require('apollo-server-express')
+const { Schema, model } = require('mongoose')
 const dateFormat = require('../utils/dateFormat');
 
-const petSchema = new Schema(
-    
-        {
+const petSchema = new Schema({
 
             petOwner: {
                 type: String,
                 required: true,
                 trim: true
     
-            }
+            },
     
             petName: {
                 type: String,
@@ -41,8 +39,8 @@ const petSchema = new Schema(
             createdAt: {
                 type: Date,
                 default: Date.now,
-                get: (timestamp) => dateFormat(timestamp).
-            },
+                get: (timestamp) => dateFormat(timestamp)
+            }
 
 })
 

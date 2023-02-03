@@ -14,7 +14,7 @@ const typeDefs = gql`
     type Pet {
         _id: ID!
         petOwner: String
-        petname: String
+        petName: String
         petAge: Number
         petSex: Boolean
         petAnimalType: String
@@ -44,5 +44,7 @@ const typeDefs = gql`
         addBooking(bookingReason: String!, bookingAuthor: String!): booking
         
      }
-`
+`;
 
+
+module.export = typeDefs;
