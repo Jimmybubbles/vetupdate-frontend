@@ -1,87 +1,72 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import { LOGIN_USER } from '../components/utils/mutations'
 
 import Auth from '../components/utils/auth'
 
-const Login = (props) => {
-    const [formState, setFormState] = useState({
-        email: '', 
-        password: '' 
-    });
-    const [login, {error}] = useMutation(LOGIN_USER); 
+function Login(props) {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN_USER);
 
-    // update state based on form input changes
-    const handleInputChange = (event) => {
-        const { name, value} = event.target;
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const mutationResponse = await login({
+                variables: { email: formState.email, password: formState.password },
+            })
+            const token = mutationResponse.data.login.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e)
+        }
+    };
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
         setFormState({
             ...formState,
             [name]: value,
-        });
+        })
     };
 
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-        try {
-            const { data } = await login({
-                variables: { ...formState},
-            });
-
-            Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e)
-        }
-
-
-    };
-
-
-
-    return(
-       
-        <form className='auth-form'>
-            <div className='form-control' onSubmit={handleFormSubmit}>
-                <label htmlFor='email'>E-mail</label>
-                
-                <input 
-                placeholder="you email"
+    return (
+        <div className="container my-1">
+          <Link to="/signup">← Go to Signup</Link>
+    
+          <h2>Login</h2>
+          <form onSubmit={handleFormSubmit}>
+            <div className="flex-row space-between my-2">
+              <label htmlFor="email">Email address:</label>
+              <input
+                placeholder="youremail@test.com"
                 name="email"
                 type="email"
-                id="email" 
-                onChange={handleInputChange} 
-                />
-            
+                id="email"
+                onChange={handleChange}
+              />
             </div>
-
-            <div className='form-control'>
-                <label htmlFor='password'>Password</label>
-                
-                <input 
-                placeholder='******'
+            <div className="flex-row space-between my-2">
+              <label htmlFor="pwd">Password:</label>
+              <input
+                placeholder="******"
                 name="password"
                 type="password"
-                id='pwd'
-                onChange={handleInputChange} 
-                />
+                id="pwd"
+                onChange={handleChange}
+              />
             </div>
-
-            <div className='form-actions'>
-                
-                <button type="submit">Submit</button>
-                <button type="button">Switch to Signup</button>
-             
-            
+            {error ? (
+              <div>
+                <p className="error-text">The provided credentials are incorrect</p>
+              </div>
+            ) : null}
+            <div className="flex-row flex-end">
+              <button type="submit">Submit</button>
             </div>
-            </form>
-                  
-        
-    ) 
+          </form>
+        </div>
+      );
+    }
     
-       
-
-}
-
-export default Login;
+    export default Login;
