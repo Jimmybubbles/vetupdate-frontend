@@ -4,7 +4,8 @@ const typeDefs = gql`
 
     type User {
         _id: ID!
-        username: String
+        firstName: String
+        lastName: String
         email: String
         password: String
         pet: String!
@@ -20,25 +21,28 @@ const typeDefs = gql`
         petBreed: String
      }
 
+    type Booking {
+        _id: ID!
+        bookingReason: String
+        bookingAuthor: String
+     }
 
-
-     type auth {
+    type Auth {
         token: ID!
         user: User
-     }
+    }
 
      type Query {
         users: [User]
         user(username: String!): User
-        
-        
-
-     }
+        booking(bookingAuthor: String!, bookingReason: String!): booking
+    }
 
      type Mutations {
-        addUser()
-        addBooking()
-        deleteBooking()
+        login(email: String!, password: String!):Auth
+        addUser(firstName: String!, lastName:String!, email: String!, password: String!): Auth
+        addBooking(bookingReason: String!, bookingAuthor: String!): booking
+        
      }
 `
 

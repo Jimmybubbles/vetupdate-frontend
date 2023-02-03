@@ -28,6 +28,6 @@ const bookingSchema = new Schema(
     }
 )
 
-const booking = model('booking', bookingSchema)
+const Booking = model('booking', bookingSchema)
 
-module.export = bookingSchema;
+module.export = Booking;

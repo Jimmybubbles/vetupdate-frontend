@@ -1,4 +1,5 @@
 const { Schema, model } = require('apollo-server-express')
+const dateFormat = require('../utils/dateFormat');
 
 const petSchema = new Schema(
     
@@ -45,6 +46,6 @@ const petSchema = new Schema(
 
 })
 
-const pet = model('pet', petSchema);
+const Pet = model('Pet', petSchema);
 
-module.export = pet;
+module.export = Pet;
