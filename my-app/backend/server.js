@@ -3,10 +3,10 @@ const path = require('path')
 // import the ApolloServer class
 const { ApolloServer } = require('apollo-server-express')
 // bring in the authmiddleware from utils for jwt 
-const { authMiddleware } = require('./utils/auth')
+const { authMiddleware } = require('./utils/auth');
 
 // bring in the typedefs and resolvers for the graphql
-const { typeDefs, resolvers } = require('./schemas/index.js');
+const { typeDefs, resolvers } = require('./schema');
 const db = require('./config/connection.js');
 
 const PORT = process.env.PORT || 3001;
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    
+    context: authMiddleware,
 })
 
 const app = express()
@@ -24,9 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // create a new instance of an Apollo server with graphql schema
-const startApolloServer = async (typeDefs, resolvers ) => {
+const startApolloServer = async ( typeDefs, resolvers ) => {
     await server.start();
-    server.applyMiddleware({ app })
+    server.applyMiddleware({ app });
 
 
 db.once('open', () => {
@@ -37,5 +37,5 @@ db.once('open', () => {
 })
 
 }
-// call the asyn function to start server
+// call the async function to start server
 startApolloServer(typeDefs, resolvers);

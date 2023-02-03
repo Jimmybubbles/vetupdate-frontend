@@ -22,7 +22,7 @@ const petSchema = new Schema({
             },
     
             petSex: {
-                type: Boolean,
+                type: String,
                 required: true
             },
     
@@ -46,4 +46,4 @@ const petSchema = new Schema({
 
 const Pet = model('Pet', petSchema);
 
-module.export = Pet;
+module.exports = Pet;

@@ -6,15 +6,15 @@ const resolvers = {
     Query: {
         
         user: async(parent, {userId}) => {
-            return user.findOne({ _id: userId})
+            return User.findOne({ _id: userId})
         },
         
         users: async () => {
-            return user.find();
+            return User.find();
         },
 
         booking: async( parent, { bookingId }) => {
-            return booking.findOne({ _id: bookingId })
+            return Booking.findOne({ _id: bookingId })
         },
 
         bookings: async( parent, { bookingId }) => {
@@ -22,7 +22,7 @@ const resolvers = {
         }
     },
 
-    mutation: {
+    Mutation: {
         
         login: async (parent, {email, password}) => {
             const user = await user.findOne({ email });
@@ -51,13 +51,13 @@ const resolvers = {
         },
 
         addBooking: async (parent, { bookingReason, bookingAuthor }) => {
-            return booking.create({ bookingReason, bookingAuthor });
+            return Booking.create({ bookingReason, bookingAuthor });
         },
         
         removeBooking: async(parent, {bookingId}) => {
-            return booking.findOneAndDelete({ _id: bookingId})
+            return Booking.findOneAndDelete({ _id: bookingId})
         }
     }
 }
 
-module.export = resolvers;
+module.exports = resolvers;

@@ -1,0 +1,162 @@
+[
+    {
+        "petOwner": "Evan",
+        "petName": "Duplan",
+        "petAge": 1,
+        "petSex": "Male",
+        "petAnimalType": "Groundhog",
+        "petBreed": "Marmota monax"
+    },
+    {
+        "petOwner": "Arty",
+        "petName": "Bille",
+        "petAge": 10,
+        "petSex": "Male",
+        "petAnimalType": "Common seal",
+        "petBreed": "Phoca vitulina"
+    },
+    {
+        "petOwner": "Rupert",
+        "petName": "Eaglen",
+        "petAge": 1,
+        "petSex": "Male",
+        "petAnimalType": "Duck, comb",
+        "petBreed": "Sarkidornis melanotos"
+    },
+    {
+        "petOwner": "Ailey",
+        "petName": "Felkin",
+        "petAge": 1,
+        "petSex": "Female",
+        "petAnimalType": "Lynx, african",
+        "petBreed": "Felis caracal"
+    },
+    {
+        "petOwner": "Christiano",
+        "petName": "Crossby",
+        "petAge": 8,
+        "petSex": "Male",
+        "petAnimalType": "Buffalo, african",
+        "petBreed": "Snycerus caffer"
+    },
+    {
+        "petOwner": "Conrad",
+        "petName": "Pritchitt",
+        "petAge": 12,
+        "petSex": "Male",
+        "petAnimalType": "Hornbill, red-billed",
+        "petBreed": "Tockus erythrorhyncus"
+    },
+    {
+        "petOwner": "Binnie",
+        "petName": "Fynes",
+        "petAge": 5,
+        "petSex": "Female",
+        "petAnimalType": "Cliffchat, mocking",
+        "petBreed": "Thamnolaea cinnmomeiventris"
+    },
+    {
+        "petOwner": "Rodrique",
+        "petName": "Winterbotham",
+        "petAge": 8,
+        "petSex": "Male",
+        "petAnimalType": "Screamer, crested",
+        "petBreed": "Chauna torquata"
+    },
+    {
+        "petOwner": "Aura",
+        "petName": "Blinerman",
+        "petAge": 10,
+        "petSex": "Polygender",
+        "petAnimalType": "Cormorant, javanese",
+        "petBreed": "Phalacrocorax niger"
+    },
+    {
+        "petOwner": "Lenna",
+        "petName": "Donegan",
+        "petAge": 14,
+        "petSex": "Female",
+        "petAnimalType": "Lory, rainbow",
+        "petBreed": "Trichoglossus haematodus moluccanus"
+    },
+    {
+        "petOwner": "Micheal",
+        "petName": "Jocelyn",
+        "petAge": 5,
+        "petSex": "Non-binary",
+        "petAnimalType": "Cat, kaffir",
+        "petBreed": "Felis silvestris lybica"
+    },
+    {
+        "petOwner": "Sherm",
+        "petName": "Roarty",
+        "petAge": 7,
+        "petSex": "Male",
+        "petAnimalType": "Gecko, bent-toed",
+        "petBreed": "Cyrtodactylus louisiadensis"
+    },
+    {
+        "petOwner": "Annora",
+        "petName": "Hearon",
+        "petAge": 2,
+        "petSex": "Female",
+        "petAnimalType": "Roseat flamingo",
+        "petBreed": "Phoenicopterus ruber"
+    },
+    {
+        "petOwner": "Kurt",
+        "petName": "MacMeekan",
+        "petAge": 14,
+        "petSex": "Genderfluid",
+        "petAnimalType": "African bush squirrel",
+        "petBreed": "Paraxerus cepapi"
+    },
+    {
+        "petOwner": "Cirstoforo",
+        "petName": "Ramsdale",
+        "petAge": 15,
+        "petSex": "Male",
+        "petAnimalType": "European red squirrel",
+        "petBreed": "Sciurus vulgaris"
+    },
+    {
+        "petOwner": "Roderick",
+        "petName": "Elston",
+        "petAge": 10,
+        "petSex": "Male",
+        "petAnimalType": "Peregrine falcon",
+        "petBreed": "Falco peregrinus"
+    },
+    {
+        "petOwner": "Granville",
+        "petName": "Cozzi",
+        "petAge": 3,
+        "petSex": "Male",
+        "petAnimalType": "Heron, grey",
+        "petBreed": "Ardea cinerea"
+    },
+    {
+        "petOwner": "Sunny",
+        "petName": "Simion",
+        "petAge": 2,
+        "petSex": "Male",
+        "petAnimalType": "Galapagos penguin",
+        "petBreed": "Spheniscus mendiculus"
+    },
+    {
+        "petOwner": "Carine",
+        "petName": "Ryder",
+        "petAge": 4,
+        "petSex": "Female",
+        "petAnimalType": "Baboon, savanna",
+        "petBreed": "Papio cynocephalus"
+    },
+    {
+        "petOwner": "Antonino",
+        "petName": "Brant",
+        "petAge": 11,
+        "petSex": "Male",
+        "petAnimalType": "Tern, white-winged black",
+        "petBreed": "Chlidonias leucopterus"
+    }
+]

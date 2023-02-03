@@ -8,7 +8,7 @@ const bookingSchema = new Schema(
             type: String,
             required: true,
             minlength: 1,
-            maxlength: 500
+            
         },
 
         bookingAuthor: {
@@ -28,6 +28,6 @@ const bookingSchema = new Schema(
     }
 )
 
-const Booking = model('booking', bookingSchema)
+const Booking = model('Booking', bookingSchema)
 
-module.export = Booking;
+module.exports = Booking;
