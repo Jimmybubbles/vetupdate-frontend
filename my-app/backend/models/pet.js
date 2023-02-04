@@ -26,7 +26,7 @@ const petSchema = new Schema({
                 required: true
             },
     
-            petType: {
+            petAnimalType: {
                 type: String,
                 require: true
             },
@@ -40,7 +40,15 @@ const petSchema = new Schema({
                 type: Date,
                 default: Date.now,
                 get: (timestamp) => dateFormat(timestamp)
-            }
+            },
+
+            booking: [
+                {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Booking'
+                }
+
+            ]
 
 })
 

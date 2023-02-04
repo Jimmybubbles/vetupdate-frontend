@@ -13,13 +13,18 @@ const resolvers = {
             return User.find();
         },
 
+        pet: async(parent, {petId}) => {
+            return Pet.findOne({_id: petId})
+        },
+
         booking: async( parent, { bookingId }) => {
             return Booking.findOne({ _id: bookingId })
         },
 
-        bookings: async( parent, { bookingId }) => {
+        bookings: async () => {
             return Booking.find().sort({ createdAt: -1})
-        }
+        },
+
     },
 
     Mutation: {

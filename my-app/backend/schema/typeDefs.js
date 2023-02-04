@@ -8,7 +8,8 @@ const typeDefs = gql`
         lastName: String
         email: String
         password: String
-        pet: String!
+        booking: [Booking]
+        pet: [Pet]
     }
 
     type Pet {
@@ -16,9 +17,10 @@ const typeDefs = gql`
         petOwner: String
         petName: String
         petAge: Int
-        petSex: Boolean
+        petSex: String
         petAnimalType: String
         petBreed: String
+        booking: [Booking]
      }
 
     type Booking {
@@ -31,15 +33,19 @@ const typeDefs = gql`
         token: ID!
         user: User
     }
+    
+    type Query {
+        user (userId: ID!): User
+        users: [User]!
+        pet (petId: ID!): Pet
+        booking (bookingId: ID!): Booking
+        bookings (bookingAuthor: String!): [Booking]
 
-     type Query {
-        users: [User]
-        user(firstName: String!, lastName: String!): User
-        booking(bookingAuthor: String!, bookingReason: String!): Booking
-        bookings: [Booking]
     }
 
-     type Mutation {
+
+
+    type Mutation {
         login(email: String!, password: String!):Auth
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
         addBooking(bookingReason: String!, bookingAuthor: String!): Booking

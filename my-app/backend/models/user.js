@@ -9,7 +9,7 @@ const userSchema = new Schema({
         trim: true,
     },
     lastName: {
-        type:String,
+        type: String,
         required: true,
         trim: true
     },
@@ -22,11 +22,25 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5
-    }
+    },
+    booking: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Booking'
+        }
+
+    ],
+    pet: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Pet'
+        }
+    ]
+
 })
 
 userSchema.pre('save', async function (next) {
-    if(this.isNew || this.isModified('password')) {
+    if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds)
     }
