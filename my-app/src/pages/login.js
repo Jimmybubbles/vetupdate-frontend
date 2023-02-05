@@ -4,30 +4,41 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations'
 import Auth from '../utils/auth'
 
-function Login(props) {
+export default function Login({changeAuth}) {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN);
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const mutationResponse = await login({
-                variables: { email: formState.email, password: formState.password },
-            })
-            const token = mutationResponse.data.login.token;
-            Auth.login(token);
-        } catch (e) {
-            console.log(e)
-        }
-    };
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
+        
         setFormState({
             ...formState,
             [name]: value,
-        })
+        });
     };
+
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+
+      try { 
+        const { data } = await login({
+          variables: { ...formState },
+        });
+
+        const auth = new Auth()
+        auth.login(data.login.token);
+      } catch (e) {
+        console.error(e);
+      }
+
+      // clear form values
+      setFormState({
+        email: "",
+        password: ""
+      });
+  };
 
     return (
         <div className>
@@ -41,7 +52,7 @@ function Login(props) {
                 placeholder="youremail@test.com"
                 name="email"
                 type="email"
-                id="email"
+                value={formState.email}
                 onChange={handleChange}
               />
             </div>
@@ -51,7 +62,7 @@ function Login(props) {
                 placeholder="******"
                 name="password"
                 type="password"
-                id="pwd"
+                value={formState.password}
                 onChange={handleChange}
               />
             </div>
@@ -67,5 +78,3 @@ function Login(props) {
         </div>
       );
     }
-    
-    export default Login;

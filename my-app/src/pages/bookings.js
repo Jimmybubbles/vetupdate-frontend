@@ -3,6 +3,10 @@ import React from 'react';
 // import { Link } from 'react-router-dom'
 import '../pages/booking.css'
 
+
+
+
+
 const BookingsPage = () => {
 
     return (
@@ -37,7 +41,14 @@ const BookingsPage = () => {
                         <div>
                             <div className="elem-group">
                                 <label htmlFor="message">Reason for booking</label>
-                                <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important." required></textarea>
+                                <textarea 
+                                    id="message" 
+                                    name="visitor_message" 
+                                    placeholder="Tell us anything else that might be important." 
+                                    
+                                    required>
+
+                                    </textarea>
                             </div>
                             <button type="submit">Book The Rooms</button>
                         </div>

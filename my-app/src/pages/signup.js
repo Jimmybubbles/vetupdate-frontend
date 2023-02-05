@@ -4,28 +4,15 @@ import { useMutation } from '@apollo/client';
 import Auth from "../utils/auth"
 import { ADD_USER } from '../utils/mutations';
 
-function Signup(props) {
+export default function Signup({changeAuth}) {
 
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ 
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '' 
+  });
   const [addUser] = useMutation(ADD_USER);
-
-
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-        
-        
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,9 +22,26 @@ function Signup(props) {
     })
   }
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: {...formState},
+      });
+
+      const auth = new Auth()
+      auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+
   return (
     <div>
-      <Link to="/login">Go to login!</Link>
+      <span></span>
+      <Link to="/login" onClick={changeAuth}>Go to login!</Link>
 
       <h2>Signup!</h2>
       <form onSubmit={handleFormSubmit}>
@@ -46,8 +50,9 @@ function Signup(props) {
           <input
             placeholder='First'
             name="firstName"
-            type="firstName"
+            type="text"
             id="firstName"
+            value={formState.firstName}
             onChange={handleChange}
           />
         </div>
@@ -57,8 +62,9 @@ function Signup(props) {
           <input
             placeholder="Last"
             name="lastName"
-            type="lastName"
+            type="text"
             id="lastName"
+            value={formState.lastName}
             onChange={handleChange}
           />
 
@@ -71,6 +77,7 @@ function Signup(props) {
             name="email"
             type="email"
             id="email"
+            value={formState.email}
             onChange={handleChange}
           />
         </div>
@@ -82,16 +89,22 @@ function Signup(props) {
             name="password"
             type="password"
             id="password"
+            value={formState.password}
             onChange={handleChange}
           />
         </div>
 
         <div>
-          <button type="submit">Submit</button>
+          <button 
+          type="submit"
+          style={{ cursor: "pointer"}}
+          >Submit</button>
         </div>
+
+
+
       </form>
     </div>
   )
 }
 
-export default Signup;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as  Router, Routes, Route, } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,8 +7,6 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as  Router, Routes, Route,   } from 'react-router-dom';
-import './App.css';
 
 import MainNavigation from './components/Navigation/main';
 import Homepage from './pages/home'
@@ -16,9 +15,13 @@ import SignupPage from './pages/signup';
 import EventsPage from './pages/events';
 import BookingsPage from './pages/bookings';
 
+import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // construct main graphql api endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
+  
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
