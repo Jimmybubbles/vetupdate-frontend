@@ -13,6 +13,12 @@ const userSchema = new Schema({
         required: true,
         trim: true
     },
+    
+    petName: {
+        type: String,
+        required: true
+    },
+
     email: {
         type: String,
         required: true,
@@ -23,10 +29,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    pet: {
-        type: String,
-        required: true
-    },
+
 
 
 })

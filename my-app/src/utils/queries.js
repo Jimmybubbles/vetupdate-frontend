@@ -24,3 +24,14 @@ export const QUERY_SINGLE_USER = gql`
     }
 
 `
+
+export const QUERY_BOOKINGS = gql`
+
+query allBookings {
+    booking {
+        _id
+        bookingReason
+        bookingAuthor
+    }
+}
+`

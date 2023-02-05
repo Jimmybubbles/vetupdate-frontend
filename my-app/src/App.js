@@ -20,8 +20,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // construct main graphql api endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql",
-  
+  uri: process.env.REACT_APP_GRAPHQL_URI || "http://localhost:3001/graphql ",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -56,6 +55,7 @@ function App() {
           <Route path="/signup" element={<SignupPage/>}/>
           <Route path="/events" element={<EventsPage/>}/>
           <Route path="/bookings" element={<BookingsPage/>}/>
+          <Route path="/signout" element={<BookingsPage/>}/>
         </Routes>
         </main>
         </React.Fragment>

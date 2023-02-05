@@ -48,8 +48,8 @@ const resolvers = {
             return { token, user };
         },
         
-        addUser: async (parent, { firstName, lastName, pet, email, password }) => {
-            const user = await User.create({ firstName, lastName, pet, email, password });
+        addUser: async (parent, { firstName, lastName, petName, email, password }) => {
+            const user = await User.create({ firstName, lastName, petName, email, password });
             const token = signToken(user);
             return { token, user };
           },

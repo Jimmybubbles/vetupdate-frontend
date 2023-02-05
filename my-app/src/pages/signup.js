@@ -9,6 +9,7 @@ export default function Signup({changeAuth}) {
   const [formState, setFormState] = useState({ 
     firstName: '',
     lastName: '',
+    petName: '',
     email: '',
     password: '' 
   });
@@ -33,7 +34,7 @@ export default function Signup({changeAuth}) {
       const auth = new Auth()
       auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e)
+      console.log(JSON.stringify(e, null, 2))
     }
   }
 
@@ -65,6 +66,18 @@ export default function Signup({changeAuth}) {
             type="text"
             id="lastName"
             value={formState.lastName}
+            onChange={handleChange}
+          />
+
+        </div>
+        <div>
+          <label htmlFor='petName'>Pet Name:</label>
+          <input
+            placeholder="Last"
+            name="petName"
+            type="text"
+            id="petNAme"
+            value={formState.petName}
             onChange={handleChange}
           />
 
