@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -23,19 +23,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    booking: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Booking'
-        }
+    pet: {
+        type: String,
+        required: true
+    },
 
-    ],
-    pet: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Pet'
-        }
-    ]
 
 })
 

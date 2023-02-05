@@ -35,11 +35,11 @@ const typeDefs = gql`
     }
     
     type Query {
-        user (userId: ID!): User
+        user (userId: ID): User
         users: [User]!
         pet (petId: ID!): Pet
         booking (bookingId: ID!): Booking
-        bookings (bookingAuthor: String!): [Booking]
+        bookings (bookingAuthor: String!): [Booking]!
 
     }
 
@@ -48,7 +48,7 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!):Auth
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-        addBooking(bookingReason: String!, bookingAuthor: String!): Booking
+        addBooking(bookingId: ID!, bookingReason: String!, bookingAuthor: String!): Booking
         removeBooking(bookingId : ID!): Booking
      }
 `;
