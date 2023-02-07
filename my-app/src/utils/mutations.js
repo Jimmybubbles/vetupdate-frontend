@@ -45,15 +45,15 @@ export const ADD_USER = gql`
 
 export const ADD_BOOKING = gql`
   mutation addBooking(
-    $bookingId: ID!
     $bookingReason: String! 
     $bookingAuthor: String!
+    $createdAt: Date!
     ) {
     addBooking(
-      bookingId: $bookingId
       bookingReason: $bookingReason 
-      bookingAuthor: $bookingAuthor) 
-      {
+      bookingAuthor: $bookingAuthor
+      createdAt: $createdAt
+    ) {
       _id
       bookingReason
       bookingAuthor

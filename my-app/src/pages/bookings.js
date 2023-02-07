@@ -23,6 +23,7 @@ const BookingsPage = () => {
     const [formState, setFormState] = useState({ 
         bookingReason: '',
         bookingAuthor: '',
+        createdAt: ''
         
 
 
@@ -55,7 +56,7 @@ const BookingsPage = () => {
 
     return (
         <div>
-            <h1>this is the Booking page</h1>
+            <h1>Make a booking</h1>
 
             {/* {Auth.loggedIn() ? ( */}
 
@@ -67,6 +68,7 @@ const BookingsPage = () => {
                             id="name"
                             name="name"
                             placeholder="your name"
+                            value={addBooking.bookingAuthor}
                             onChange={handleChange}
                         />
 
@@ -76,6 +78,7 @@ const BookingsPage = () => {
                             type="date"
                             id="checkin-date"
                             name="checkin"
+                            value={addBooking.createdAt}
                             onChange={handleChange}
                                 
                             />
@@ -89,8 +92,11 @@ const BookingsPage = () => {
                                 <label htmlFor="message">Reason for booking</label>
                                 <textarea 
                                     id="message" 
+                                    type="text"
                                     name="visitor_message" 
                                     placeholder="Tell us anything else that might be important." 
+                                    
+                                    value={addBooking.bookingReason}
                                     onChange={handleChange}
                                     required>
 

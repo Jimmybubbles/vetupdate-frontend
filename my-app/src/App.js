@@ -14,6 +14,7 @@ import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
 import EventsPage from './pages/events';
 import BookingsPage from './pages/bookings';
+import PaymentsPage from './pages/payments';
 
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -55,7 +56,7 @@ function App() {
           <Route path="/signup" element={<SignupPage/>}/>
           <Route path="/events" element={<EventsPage/>}/>
           <Route path="/bookings" element={<BookingsPage/>}/>
-          <Route path="/signout" element={<BookingsPage/>}/>
+          <Route path="/payments" element={<PaymentsPage/>}/>
         </Routes>
         </main>
         </React.Fragment>

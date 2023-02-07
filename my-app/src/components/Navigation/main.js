@@ -25,7 +25,7 @@ const mainNavigation = props => (
                     <NavLink to="/events">Events</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/logout">Logout</NavLink>
+                    <NavLink to="/payments">Payment</NavLink>
                 </li>
 
             </ul>

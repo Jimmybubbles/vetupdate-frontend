@@ -54,8 +54,8 @@ const resolvers = {
             return { token, user };
           },
 
-        addBooking: async (parent, { bookingReason, bookingAuthor }) => {
-            return Booking.create({ bookingReason, bookingAuthor });
+        addBooking: async (parent, { bookingReason, bookingAuthor, createdAt }) => {
+            return Booking.create({ bookingReason, bookingAuthor, createdAt});
         },
         
         removeBooking: async(parent, {bookingId}) => {
